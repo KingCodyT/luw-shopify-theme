@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "status": {
+      "type": "drop-status",
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-collection-artwork",
+      "settings": {
+      }
+    },
+    "signup": {
+      "type": "signup-band",
+      "settings": {
+        "eyebrow": "Upcoming",
+        "heading": "Be ready for the next release."
+      }
+    },
+    "story": {
+      "type": "story-panel",
+      "settings": {
+        "eyebrow": "Story",
+        "heading": "The chapter behind this drop.",
+        "text": "<p>Keep this compact: why the drop exists, the mood it carries, and what makes the artwork worth collecting.</p>"
+      }
+    }
+  },
+  "order": [
+    "status",
+    "main",
+    "signup",
+    "story"
+  ]
+}

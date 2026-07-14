@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "intro": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "worlds": {
+      "type": "collection-worlds",
+      "settings": {
+        "eyebrow": "Shop worlds",
+        "heading": "Find your lane.",
+        "text": "Large collections stay organized by world: new drops, sports, outdoors, racing, and lifestyle."
+      }
+    },
+    "signup": {
+      "type": "signup-band",
+      "settings": {
+        "eyebrow": "Drops",
+        "heading": "Get the next release before it hits the feed."
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "worlds",
+    "signup"
+  ]
+}

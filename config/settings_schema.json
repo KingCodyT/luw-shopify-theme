@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#F7F3EA"
+      },
+      {
+        "type": "color",
+        "id": "color_foreground",
+        "label": "Text",
+        "default": "#171717"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#D44D2E"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted background",
+        "default": "#E4DDD0"
+      },
+      {
+        "type": "text",
+        "id": "drop_label",
+        "label": "Default drop label",
+        "default": "Current drop"
+      }
+    ]
+  }
+]

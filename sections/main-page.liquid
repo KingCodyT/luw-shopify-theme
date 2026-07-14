@@ -1,0 +1,13 @@
+<section class="page-shell">
+  <div class="page-shell__inner">
+    <p class="eyebrow">{{ page.metafields.custom.page_label | default: 'Story' }}</p>
+    <h1>{{ page.title }}</h1>
+    <div class="rte">{{ page.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page"
+}
+{% endschema %}

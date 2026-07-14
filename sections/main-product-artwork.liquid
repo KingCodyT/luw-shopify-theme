@@ -1,0 +1,133 @@
+{% liquid
+  assign artwork_title = product.metafields.custom.artwork_title | default: product.title
+  assign artist_name = product.metafields.custom.artist_name
+  assign story = product.metafields.custom.artwork_story
+  assign selected_variant = product.selected_or_first_available_variant
+%}
+
+<section class="product-artwork" data-section-id="{{ section.id }}">
+  <div class="product-artwork__gallery">
+    {% for media in product.media %}
+      <div class="product-artwork__media">
+        {% case media.media_type %}
+          {% when 'image' %}
+            {% liquid
+              assign media_loading = 'lazy'
+              if forloop.first
+                assign media_loading = 'eager'
+              endif
+            %}
+            {% render 'responsive-image',
+              image: media.preview_image,
+              sizes: '(min-width: 990px) 62vw, 100vw',
+              loading: media_loading,
+              class: 'product-artwork__image'
+            %}
+          {% when 'video', 'external_video' %}
+            {{ media | media_tag: image_size: '1600x', autoplay: false, loop: true, controls: true }}
+          {% else %}
+            {{ media | media_tag: image_size: '1600x' }}
+        {% endcase %}
+      </div>
+    {% else %}
+      <div class="product-artwork__media">
+        {% render 'responsive-image',
+          image: product.featured_image,
+          sizes: '(min-width: 990px) 62vw, 100vw',
+          loading: 'eager',
+          class: 'product-artwork__image'
+        %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <aside class="product-artwork__purchase" aria-label="Purchase {{ product.title }}">
+    <p class="eyebrow">{{ product.type | default: settings.drop_label }}</p>
+    <h1>{{ artwork_title }}</h1>
+    {% if artist_name != blank %}
+      <p class="product-artwork__artist">{{ artist_name }}</p>
+    {% endif %}
+
+    <div class="product-artwork__price" data-price>
+      {{ selected_variant.price | money }}
+    </div>
+
+    {% form 'product', product, class: 'product-form', data-product-form: '' %}
+      <input type="hidden" name="id" value="{{ selected_variant.id }}">
+
+      {% unless product.has_only_default_variant %}
+        <div class="variant-groups">
+          {% for option in product.options_with_values %}
+            <fieldset class="variant-group">
+              <legend>{{ option.name }}</legend>
+              <div class="variant-group__values">
+                {% for value in option.values %}
+                  <label class="variant-pill">
+                    <input
+                      type="radio"
+                      name="options[{{ option.name | escape }}]"
+                      value="{{ value | escape }}"
+                      {% if option.selected_value == value %}checked{% endif %}
+                    >
+                    <span>{{ value }}</span>
+                  </label>
+                {% endfor %}
+              </div>
+            </fieldset>
+          {% endfor %}
+        </div>
+      {% endunless %}
+
+      <div class="quantity-row">
+        <label for="Quantity-{{ section.id }}">Qty</label>
+        <input id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1">
+      </div>
+
+      <button class="button button--primary button--full" type="submit" {% unless selected_variant.available %}disabled{% endunless %}>
+        {% if selected_variant.available %}
+          Add canvas
+        {% else %}
+          Sold out
+        {% endif %}
+      </button>
+    {% endform %}
+
+    <div class="product-artwork__accordions">
+      {% if product.description != blank %}
+        <details>
+          <summary>Details</summary>
+          <div class="rte">{{ product.description }}</div>
+        </details>
+      {% endif %}
+      <details>
+        <summary>Shipping and returns</summary>
+        <div class="rte">{{ section.settings.shipping_text }}</div>
+      </details>
+    </div>
+  </aside>
+</section>
+
+{% if story != blank %}
+  <section class="product-story">
+    <p class="eyebrow">Artwork story</p>
+    <div class="rte">{{ story | metafield_tag }}</div>
+  </section>
+{% endif %}
+
+<script type="application/json" data-product-json>
+  {{ product.variants | json }}
+</script>
+
+{% schema %}
+{
+  "name": "Artwork product",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "shipping_text",
+      "label": "Shipping text",
+      "default": "<p>Shipping, returns, materials, and fit information stay close to the buy button without crowding the artwork-first view.</p>"
+    }
+  ]
+}
+{% endschema %}

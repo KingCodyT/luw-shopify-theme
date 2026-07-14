@@ -1,0 +1,27 @@
+{% liquid
+  assign tile_product = product
+  assign tile_image = tile_product.featured_media.preview_image | default: tile_product.featured_image
+  assign artwork_title = tile_product.metafields.custom.artwork_title | default: tile_product.title
+  assign artist_name = tile_product.metafields.custom.artist_name
+  assign drop_status = tile_product.metafields.custom.drop_status
+%}
+
+<a class="artwork-tile" href="{{ tile_product.url }}">
+  <span class="artwork-tile__image">
+    {% render 'responsive-image',
+      image: tile_image,
+      sizes: '(min-width: 990px) 33vw, 84vw',
+      class: 'artwork-tile__img'
+    %}
+  </span>
+  <span class="artwork-tile__meta">
+    {% if drop_status != blank %}
+      <span class="eyebrow">{{ drop_status }}</span>
+    {% endif %}
+    <span class="artwork-tile__title">{{ artwork_title }}</span>
+    {% if artist_name != blank %}
+      <span class="artwork-tile__artist">{{ artist_name }}</span>
+    {% endif %}
+    <span class="artwork-tile__price">{{ tile_product.price | money }}</span>
+  </span>
+</a>

@@ -1,0 +1,85 @@
+<section class="drop-status" data-section-id="{{ section.id }}">
+  <div class="drop-status__inner">
+    <div>
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="drop-status__details">
+      {% for block in section.blocks %}
+        <div class="drop-status__item" {{ block.shopify_attributes }}>
+          <span>{{ block.settings.label }}</span>
+          <strong>{{ block.settings.value }}</strong>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Drop status",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Drop status"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Limited release, then archive."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "status",
+      "name": "Status item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Release"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Live now"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Drop status",
+      "blocks": [
+        {
+          "type": "status",
+          "settings": {
+            "label": "Release",
+            "value": "Live now"
+          }
+        },
+        {
+          "type": "status",
+          "settings": {
+            "label": "Window",
+            "value": "7 days"
+          }
+        },
+        {
+          "type": "status",
+          "settings": {
+            "label": "Archive",
+            "value": "After sellout"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

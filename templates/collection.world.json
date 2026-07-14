@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection-artwork",
+      "settings": {
+        "products_per_page": 24
+      }
+    },
+    "signup": {
+      "type": "signup-band",
+      "settings": {
+        "eyebrow": "More coming",
+        "heading": "Get notified when this world expands."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "signup"
+  ]
+}

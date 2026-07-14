@@ -1,0 +1,45 @@
+<header class="site-header" data-section-id="{{ section.id }}">
+  <a class="site-header__brand" href="{{ routes.root_url }}">
+    {% if section.settings.logo != blank %}
+      {{ section.settings.logo | image_url: width: 240 | image_tag: loading: 'eager', widths: '120, 180, 240', alt: shop.name }}
+    {% else %}
+      <span>{{ shop.name }}</span>
+    {% endif %}
+  </a>
+
+  <nav class="site-header__nav" aria-label="Main navigation">
+    {% for link in section.settings.menu.links %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+  </nav>
+
+  <div class="site-header__actions">
+    <a href="{{ routes.search_url }}" aria-label="Search">Search</a>
+    <a href="{{ routes.cart_url }}" aria-label="Cart">Cart <span data-cart-count>{{ cart.item_count }}</span></a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "shopify-section-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

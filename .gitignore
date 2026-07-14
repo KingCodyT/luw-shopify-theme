@@ -1,0 +1,17 @@
+.DS_Store
+*/.DS_Store
+
+# Theme upload/build artifacts
+dist/
+*.zip
+
+# Local/editor noise
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment/secrets
+.env
+.env.*
+!.env.example

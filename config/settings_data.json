@@ -1,0 +1,13 @@
+{
+  "current": {
+    "color_background": "#F7F3EA",
+    "color_foreground": "#171717",
+    "color_accent": "#D44D2E",
+    "color_muted": "#E4DDD0",
+    "drop_label": "Current drop",
+    "sections": {
+    },
+    "content_for_index": [
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{% liquid
+  assign image_widths = widths | default: '375, 550, 750, 1100, 1500, 2000'
+  assign image_alt = alt | default: image.alt | default: shop.name
+  assign image_loading = loading | default: 'lazy'
+%}
+
+{% if image != blank %}
+  {{
+    image
+    | image_url: width: 2000
+    | image_tag:
+      widths: image_widths,
+      sizes: sizes,
+      loading: image_loading,
+      alt: image_alt,
+      class: class
+  }}
+{% else %}
+  <div class="placeholder-art {{ class }}" aria-hidden="true">
+    {{ 'image' | placeholder_svg_tag }}
+  </div>
+{% endif %}

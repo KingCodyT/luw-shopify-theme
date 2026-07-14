@@ -1,0 +1,76 @@
+<section class="featured-artworks" data-section-id="{{ section.id }}">
+  <div class="section-heading">
+    <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    <h2>{{ section.settings.heading }}</h2>
+  </div>
+
+  <div class="artwork-scroll" role="list">
+    {% if section.settings.collection != blank %}
+      {% for product in section.settings.collection.products limit: section.settings.limit %}
+        <div role="listitem">
+          {% render 'artwork-tile', product: product %}
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for block in section.blocks %}
+        {% if block.settings.product != blank %}
+          <div role="listitem" {{ block.shopify_attributes }}>
+            {% render 'artwork-tile', product: block.settings.product %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured artworks",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Artwork"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Choose the piece, then choose the canvas."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Artwork collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Products to show",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured artworks"
+    }
+  ]
+}
+{% endschema %}

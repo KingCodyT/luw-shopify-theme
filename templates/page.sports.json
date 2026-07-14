@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "intro": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "worlds": {
+      "type": "collection-worlds",
+      "settings": {
+        "eyebrow": "Sports",
+        "heading": "Game-day worlds, artwork first.",
+        "text": "NFL, NBA, MLB, NCAA, racing, and outdoor sport collections can grow without crowding the main navigation."
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "worlds"
+  ]
+}

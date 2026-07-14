@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection-artwork",
+      "settings": {
+      }
+    },
+    "status": {
+      "type": "drop-status",
+      "settings": {
+        "eyebrow": "Archive",
+        "heading": "This release remains as part of the visual record."
+      }
+    },
+    "signup": {
+      "type": "signup-band",
+      "settings": {
+        "eyebrow": "Next release",
+        "heading": "Get notified when the next chapter opens."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "status",
+    "signup"
+  ]
+}

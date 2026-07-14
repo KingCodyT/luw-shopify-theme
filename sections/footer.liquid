@@ -1,0 +1,37 @@
+<footer class="site-footer">
+  <div>
+    <p class="site-footer__brand">{{ shop.name }}</p>
+    <p class="site-footer__note">{{ section.settings.note }}</p>
+  </div>
+
+  <nav class="site-footer__links" aria-label="Footer navigation">
+    {% for link in section.settings.menu.links %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+  </nav>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Footer note",
+      "default": "Artwork-first commerce. Limited drops, wearable canvases, collectible stories."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

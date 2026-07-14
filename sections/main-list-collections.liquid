@@ -1,0 +1,38 @@
+<section class="list-collections">
+  <div class="section-heading">
+    <p class="eyebrow">Collections</p>
+    <h1>{{ section.settings.heading }}</h1>
+  </div>
+
+  <div class="lifestyle-grid">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <a class="lifestyle-tile" href="{{ collection.url }}">
+          {% render 'responsive-image',
+            image: collection.featured_image,
+            sizes: '(min-width: 990px) 50vw, 100vw',
+            class: 'lifestyle-tile__image'
+          %}
+          <span class="lifestyle-tile__content">
+            <span class="eyebrow">{{ collection.products_count }} pieces</span>
+            <span class="lifestyle-tile__title">{{ collection.title }}</span>
+          </span>
+        </a>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Browse by lifestyle."
+    }
+  ]
+}
+{% endschema %}

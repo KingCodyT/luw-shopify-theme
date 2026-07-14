@@ -1,0 +1,52 @@
+<section class="collection-artwork">
+  <header class="collection-artwork__header">
+    {% if collection.image != blank %}
+      {% render 'responsive-image',
+        image: collection.image,
+        sizes: '100vw',
+        loading: 'eager',
+        class: 'collection-artwork__hero'
+      %}
+    {% endif %}
+    <div class="collection-artwork__copy">
+      <p class="eyebrow">{{ collection.metafields.custom.collection_label | default: 'Collection' }}</p>
+      <h1>{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="rte">{{ collection.description }}</div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="collection-artwork__grid">
+    {% paginate collection.products by section.settings.products_per_page %}
+      {% for product in collection.products %}
+        {% render 'artwork-tile', product: product %}
+      {% else %}
+        <p>No artworks are currently assigned to this collection.</p>
+      {% endfor %}
+
+      {% if paginate.pages > 1 %}
+        <nav class="pagination" aria-label="Pagination">
+          {{ paginate | default_pagination }}
+        </nav>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Artwork collection",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

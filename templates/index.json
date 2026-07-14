@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "drop_hero": {
+      "type": "artwork-drop-hero",
+      "settings": {
+        "eyebrow": "Current drop",
+        "heading": "The Lyfe U Want",
+        "text": "Original artwork released as limited wearable and collectible canvases.",
+        "cta_label": "View drop"
+      }
+    },
+    "featured_artworks": {
+      "type": "featured-artworks",
+      "settings": {
+        "eyebrow": "Featured artworks",
+        "heading": "Start with the piece."
+      }
+    },
+    "lifestyle_collections": {
+      "type": "lifestyle-collections",
+      "settings": {
+        "eyebrow": "Collections",
+        "heading": "Built as moods, moments, and lifestyles."
+      }
+    },
+    "collection_worlds": {
+      "type": "collection-worlds",
+      "settings": {
+        "eyebrow": "Shop worlds",
+        "heading": "Sports, outdoors, racing, lifestyle.",
+        "text": "Large collections can grow here without crowding the brand. Each world holds artwork-first products across the canvases you choose."
+      }
+    },
+    "story_panel": {
+      "type": "story-panel",
+      "settings": {
+        "eyebrow": "Framework",
+        "heading": "The store behaves like a gallery.",
+        "text": "<p>Each drop works like a chapter: a hero image, a tight artwork set, selected canvases, and an archive after the release ends.</p>"
+      }
+    }
+  },
+  "order": [
+    "drop_hero",
+    "featured_artworks",
+    "lifestyle_collections",
+    "collection_worlds",
+    "story_panel"
+  ]
+}

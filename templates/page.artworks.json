@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "intro": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "artworks": {
+      "type": "featured-artworks",
+      "settings": {
+        "eyebrow": "Artwork index",
+        "heading": "Browse the pieces before the products."
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "artworks"
+  ]
+}
