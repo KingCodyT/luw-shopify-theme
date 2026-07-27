@@ -1,3 +1,4 @@
+
 (function () {
   const formatMoney = (cents) => {
     if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
@@ -45,7 +46,7 @@
 
       if (submit) {
         submit.disabled = !variant.available;
-        submit.textContent = variant.available ? 'Add canvas' : 'Sold out';
+        submit.textContent = variant.available ? 'ADD TO CART' : 'Sold out';
       }
     });
   });
