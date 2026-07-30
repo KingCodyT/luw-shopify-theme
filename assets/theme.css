@@ -613,6 +613,7 @@ h2 {
 }
 
 .product-artwork__media {
+  min-height: 320px;
   background: var(--color-muted);
 }
 
