@@ -978,3 +978,195 @@ summary {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* League Hub */
+
+.league-hub {
+  padding-top: var(--league-hub-padding-top, 80px);
+  padding-bottom: var(--league-hub-padding-bottom, 80px);
+}
+
+.league-hub__container {
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+}
+
+.league-hub__container--contained {
+  max-width: var(--league-hub-section-max-width, 1200px);
+}
+
+.league-hub__container--wide {
+  max-width: 1600px;
+}
+
+.league-hub__container--full {
+  max-width: none;
+}
+
+.league-hub__header {
+  text-align: var(--league-hub-text-align, left);
+  margin-bottom: 64px;
+}
+
+.league-hub__eyebrow {
+  color: var(--league-hub-eyebrow-color, #D44D2E);
+  display: block;
+  font-size: var(--league-hub-eyebrow-font-size, 12px);
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.league-hub__heading {
+  color: var(--league-hub-heading-color, #111111);
+  font-size: var(--league-hub-heading-font-size-mobile, 48px);
+  font-weight: 500;
+  line-height: 0.98;
+  margin: 0 0 20px;
+  max-width: var(--league-hub-heading-max-width, 640px);
+}
+
+.league-hub__body {
+  color: var(--league-hub-body-color, #555555);
+  font-size: var(--league-hub-body-font-size, 18px);
+  line-height: 1.45;
+  margin: 0;
+  max-width: 640px;
+}
+
+.league-hub__grid {
+  display: grid;
+  gap: var(--league-hub-card-gap, 20px);
+  grid-template-columns: repeat(var(--league-hub-mobile-columns, 1), minmax(0, 1fr));
+}
+
+.league-card {
+  background: var(--league-card-bg-override, var(--league-hub-card-bg, #FFFFFF));
+  border: var(--league-hub-card-border-width, 1px) solid var(--league-card-border-color-override, var(--league-hub-card-border-color, #E8E8E8));
+  border-radius: var(--league-hub-card-border-radius, 12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, calc(0.08 * var(--league-hub-card-shadow-intensity, 1)));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: all var(--league-hub-animation-speed, 300ms) ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.league-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, calc(0.16 * var(--league-hub-card-shadow-intensity, 1)));
+  transform: translateY(var(--league-hub-card-lift, -6px));
+}
+
+.league-card:focus {
+  outline: 2px solid var(--league-hub-heading-color, #111111);
+}
+
+.league-card__image-wrap {
+  aspect-ratio: var(--league-hub-image-aspect-ratio, 16 / 10);
+  background: var(--color-muted);
+  overflow: hidden;
+  position: relative;
+}
+
+.league-card__image {
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--league-hub-animation-speed, 300ms) ease;
+  width: 100%;
+}
+
+.league-card:hover .league-card__image {
+  transform: scale(var(--league-hub-image-zoom, 1));
+}
+
+.league-card__content {
+  border-top: 4px solid var(--league-card-accent-color, #D44D2E);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 12px;
+  padding: 20px;
+}
+
+.league-card__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+  color: #111111;
+}
+
+.league-card__tagline {
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.league-card__button {
+  background: var(--league-card-button-bg, var(--league-hub-button-bg, #111111));
+  border-radius: var(--league-hub-button-border-radius, 6px);
+  color: var(--league-card-button-text, var(--league-hub-button-text, #FFFFFF));
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: var(--button-padding, 12px 16px);
+  text-align: center;
+  text-transform: uppercase;
+  transition: all var(--league-hub-animation-speed, 300ms) ease;
+}
+
+.league-card--button-small .league-card__button {
+  --button-padding: 8px 12px;
+  font-size: 0.75rem;
+}
+
+.league-card--button-large .league-card__button {
+  --button-padding: 16px 20px;
+  font-size: 0.95rem;
+}
+
+.league-card:hover .league-card__button {
+  background: var(--league-hub-button-hover-bg, #333333);
+  color: var(--league-hub-button-hover-text, #FFFFFF);
+}
+
+.league-card:focus .league-card__button {
+  outline: 2px solid var(--league-hub-button-bg, #111111);
+  outline-offset: 2px;
+}
+
+@media (min-width: 750px) {
+  .league-hub__grid {
+    grid-template-columns: repeat(var(--league-hub-tablet-columns, 2), minmax(0, 1fr));
+  }
+
+  .league-hub__heading {
+    margin-bottom: 24px;
+  }
+
+  .league-hub__header {
+    margin-bottom: 72px;
+  }
+}
+
+@media (min-width: 990px) {
+  .league-hub__grid {
+    grid-template-columns: repeat(var(--league-hub-desktop-columns, 3), minmax(0, 1fr));
+  }
+
+  .league-hub__heading {
+    font-size: var(--league-hub-heading-font-size-desktop, 72px);
+    margin-bottom: 28px;
+  }
+
+  .league-hub__header {
+    margin-bottom: 72px;
+  }
+}
