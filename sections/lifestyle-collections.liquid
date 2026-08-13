@@ -1,25 +1,85 @@
-<section class="lifestyle-collections" data-section-id="{{ section.id }}">
-  <div class="section-heading">
-    <p class="eyebrow">{{ section.settings.eyebrow }}</p>
-    <h2>{{ section.settings.heading }}</h2>
+<section
+  class="lyfestyle-mosaic"
+  data-section-id="{{ section.id }}"
+>
+  <div class="lyfestyle-mosaic__header">
+    {% if section.settings.eyebrow != blank %}
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <div class="lyfestyle-mosaic__intro">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
   </div>
 
-  <div class="lifestyle-grid">
+  <div class="lyfestyle-mosaic__grid">
     {% for block in section.blocks %}
       {% liquid
         assign collection = block.settings.collection
-        assign image = block.settings.image | default: collection.featured_image
+        assign link = block.settings.link | default: collection.url
       %}
-      <a class="lifestyle-tile" href="{{ collection.url | default: block.settings.link }}" {{ block.shopify_attributes }}>
-        {% render 'responsive-image',
-          image: image,
-          sizes: '(min-width: 990px) 50vw, 100vw',
-          class: 'lifestyle-tile__image'
-        %}
-        <span class="lifestyle-tile__content">
-          <span class="eyebrow">{{ block.settings.label }}</span>
-          <span class="lifestyle-tile__title">{{ block.settings.title | default: collection.title }}</span>
-        </span>
+
+      <a
+        class="lyfestyle-mosaic__tile lyfestyle-mosaic__tile--{{ block.settings.tile_size }}"
+        href="{{ link }}"
+        {{ block.shopify_attributes }}
+      >
+        <div class="lyfestyle-mosaic__media">
+          {% if block.settings.video != blank %}
+            {{
+              block.settings.video
+              | video_tag:
+                autoplay: true,
+                loop: true,
+                muted: true,
+                controls: false,
+                playsinline: true,
+                class: 'lyfestyle-mosaic__video'
+            }}
+          {% elsif block.settings.image != blank %}
+            {% render 'responsive-image',
+              image: block.settings.image,
+              sizes: '(min-width: 990px) 50vw, (min-width: 750px) 50vw, 100vw',
+              class: 'lyfestyle-mosaic__image',
+              loading: 'lazy'
+            %}
+          {% elsif collection.featured_image != blank %}
+            {% render 'responsive-image',
+              image: collection.featured_image,
+              sizes: '(min-width: 990px) 50vw, (min-width: 750px) 50vw, 100vw',
+              class: 'lyfestyle-mosaic__image',
+              loading: 'lazy'
+            %}
+          {% endif %}
+        </div>
+
+        <div class="lyfestyle-mosaic__overlay">
+          {% if block.settings.label != blank %}
+            <span class="lyfestyle-mosaic__label">
+              {{ block.settings.label }}
+            </span>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <h3 class="lyfestyle-mosaic__title">
+              {{ block.settings.title }}
+            </h3>
+          {% elsif collection != blank %}
+            <h3 class="lyfestyle-mosaic__title">
+              {{ collection.title }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.cta != blank %}
+            <span class="lyfestyle-mosaic__cta"> {{ block.settings.cta }} → </span>
+          {% endif %}
+        </div>
       </a>
     {% endfor %}
   </div>
@@ -27,41 +87,80 @@
 
 {% schema %}
 {
-  "name": "Lifestyle collections",
+  "name": "LYFESTYLE Mosaic",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Collections"
+      "default": "LYFESTYLE"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Lifestyles, not categories."
+      "default": "THAT'S THE LYFE I WANT."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Intro text"
     }
   ],
   "blocks": [
     {
-      "type": "collection",
-      "name": "Collection tile",
+      "type": "lyfestyle_tile",
+      "name": "LYFESTYLE tile",
       "settings": [
+        {
+          "type": "select",
+          "id": "tile_size",
+          "label": "Tile size",
+          "default": "square",
+          "options": [
+            {
+              "value": "hero",
+              "label": "Large hero — 2 × 2"
+            },
+            {
+              "value": "tall",
+              "label": "Tall portrait — 1 × 2"
+            },
+            {
+              "value": "square",
+              "label": "Square — 1 × 1"
+            },
+            {
+              "value": "wide",
+              "label": "Wide — 2 × 1"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
         {
           "type": "collection",
           "id": "collection",
           "label": "Collection"
         },
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Override image"
+          "type": "url",
+          "id": "link",
+          "label": "Override link"
         },
         {
           "type": "text",
           "id": "label",
           "label": "Small label",
-          "default": "Lifestyle"
+          "default": "LYFESTYLE"
         },
         {
           "type": "text",
@@ -69,22 +168,54 @@
           "label": "Title override"
         },
         {
-          "type": "url",
-          "id": "link",
-          "label": "Fallback link"
+          "type": "text",
+          "id": "cta",
+          "label": "Call to action",
+          "default": "Explore"
         }
       ]
     }
   ],
+  "max_blocks": 7,
   "presets": [
     {
-      "name": "Lifestyle collections",
+      "name": "LYFESTYLE Mosaic",
       "blocks": [
         {
-          "type": "collection"
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "hero"
+          }
         },
         {
-          "type": "collection"
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "tall"
+          }
+        },
+        {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "square"
+          }
+        },
+        {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "square"
+          }
+        },
+        {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "wide"
+          }
+        },
+        {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "square"
+          }
         }
       ]
     }

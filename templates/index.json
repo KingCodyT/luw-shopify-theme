@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "drop_hero": {
@@ -6,59 +15,109 @@
         "eyebrow": "Current drop",
         "heading": "The Lyfe U Want",
         "text": "Original artwork released as limited wearable and collectible canvases.",
-        "cta_label": "View drop"
+        "collection": "",
+        "cta_label": "View drop",
+        "secondary_link": "",
+        "secondary_label": "Archive"
       }
     },
     "league_hub": {
       "type": "league-hub",
-      "settings": {},
       "blocks": {
         "nfl_lyfe": {
           "type": "league_card",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/NFL_image.png",
             "league_name": "NFL LYFE",
             "tagline": "Where Sundays become memories.",
-            "button_text": "Explore NFL"
+            "button_text": "Explore NFL",
+            "button_url": "",
+            "accent_color": "#d44d2e",
+            "button_bg_color": "#111111",
+            "button_text_color": "#ffffff",
+            "card_bg_color_override": "",
+            "card_border_color_override": ""
           }
         },
         "mlb_lyfe": {
           "type": "league_card",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/MLB_LYFE.png",
             "league_name": "MLB LYFE",
             "tagline": "For the love of the game.",
-            "button_text": "Explore MLB"
+            "button_text": "Explore MLB",
+            "button_url": "",
+            "accent_color": "#d44d2e",
+            "button_bg_color": "#111111",
+            "button_text_color": "#ffffff",
+            "card_bg_color_override": "",
+            "card_border_color_override": ""
           }
         },
         "nba_lyfe": {
           "type": "league_card",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/NBA_Lyfe.png",
             "league_name": "NBA LYFE",
             "tagline": "Above the rim. Beyond ordinary.",
-            "button_text": "Explore NBA"
+            "button_text": "Explore NBA",
+            "button_url": "",
+            "accent_color": "#d44d2e",
+            "button_bg_color": "#111111",
+            "button_text_color": "#ffffff",
+            "card_bg_color_override": "",
+            "card_border_color_override": ""
           }
         },
         "nhl_lyfe": {
           "type": "league_card",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/NHL_LYFE.png",
             "league_name": "NHL LYFE",
             "tagline": "Cold ice. Hot rivalries.",
-            "button_text": "Explore NHL"
+            "button_text": "Explore NHL",
+            "button_url": "",
+            "accent_color": "#d44d2e",
+            "button_bg_color": "#111111",
+            "button_text_color": "#ffffff",
+            "card_bg_color_override": "",
+            "card_border_color_override": ""
           }
         },
         "college_lyfe": {
           "type": "league_card",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/College_LYFE.png",
             "league_name": "College LYFE",
             "tagline": "Saturdays live forever.",
-            "button_text": "Explore College"
+            "button_text": "Explore College",
+            "button_url": "",
+            "accent_color": "#d44d2e",
+            "button_bg_color": "#111111",
+            "button_text_color": "#ffffff",
+            "card_bg_color_override": "",
+            "card_border_color_override": ""
           }
         },
         "racing_lyfe": {
           "type": "league_card",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Racing_LYFE.png",
             "league_name": "Racing LYFE",
             "tagline": "Built For Speed.",
-            "button_text": "Explore Racing"
+            "button_text": "Explore Racing",
+            "button_url": "",
+            "accent_color": "#d44d2e",
+            "button_bg_color": "#111111",
+            "button_text_color": "#ffffff",
+            "card_bg_color_override": "",
+            "card_border_color_override": ""
           }
         }
       },
@@ -69,27 +128,71 @@
         "nhl_lyfe",
         "college_lyfe",
         "racing_lyfe"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "LEAGUE HUB",
+        "heading": "CHOOSE YOUR LEAGUE.",
+        "body_text": "Every league has its legends. Find your team and wear your LYFE.",
+        "section_width": "contained",
+        "section_max_width": 1200,
+        "mobile_columns": 1,
+        "tablet_columns": 2,
+        "desktop_columns": 3,
+        "card_gap": 20,
+        "eyebrow_color": "#d44d2e",
+        "eyebrow_font_size": 12,
+        "heading_color": "#111111",
+        "heading_font_size_mobile": 48,
+        "heading_font_size_desktop": 72,
+        "heading_max_width": 640,
+        "body_color": "#555555",
+        "body_font_size": 18,
+        "text_alignment": "left",
+        "image_aspect_ratio": "1 / 1",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e8e8e8",
+        "card_border_width": 1,
+        "card_border_radius": 12,
+        "shadow_intensity": 1,
+        "button_bg_color": "#111111",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 6,
+        "button_hover_bg_color": "#333333",
+        "button_hover_text_color": "#ffffff",
+        "button_size": "medium",
+        "enable_card_lift": true,
+        "enable_image_zoom": true,
+        "animation_speed": "300",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     },
     "featured_gear": {
       "type": "featured-gear",
-      "settings": {},
       "blocks": {
         "product_1": {
           "type": "product",
-          "settings": {}
+          "settings": {
+            "product": ""
+          }
         },
         "product_2": {
           "type": "product",
-          "settings": {}
+          "settings": {
+            "product": ""
+          }
         },
         "product_3": {
           "type": "product",
-          "settings": {}
+          "settings": {
+            "product": ""
+          }
         },
         "product_4": {
           "type": "product",
-          "settings": {}
+          "settings": {
+            "product": ""
+          }
         }
       },
       "block_order": [
@@ -97,18 +200,21 @@
         "product_2",
         "product_3",
         "product_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "FEATURED GEAR",
+        "heading": "WEAR THE LYFE.",
+        "text": "A few favorites worth wearing right now.",
+        "show_shop_all": true,
+        "shop_all_label": "SHOP ALL →"
+      }
     },
     "lyfestyle_collections": {
       "type": "lyfestyle-collections",
-      "settings": {}
-    },
-    "story_panel": {
-      "type": "story-panel",
       "settings": {
-        "eyebrow": "Framework",
-        "heading": "The store behaves like a gallery.",
-        "text": "<p>Each drop works like a chapter: a hero image, a tight artwork set, selected canvases, and an archive after the release ends.</p>"
+        "eyebrow": "LIFESTYLE COLLECTIONS",
+        "title": "FIND YOUR THING.",
+        "subtitle": "Whatever makes life better, there’s a LYFE for it."
       }
     }
   },
@@ -116,7 +222,6 @@
     "drop_hero",
     "league_hub",
     "featured_gear",
-    "lyfestyle_collections",
-    "story_panel"
+    "lyfestyle_collections"
   ]
 }
