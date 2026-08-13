@@ -1,5 +1,5 @@
 :root {
-  --color-background: #f7f3ea;
+  --color-background: #f8f8f6;
   --color-foreground: #171717;
   --color-accent: #d44d2e;
   --color-muted: #e4ddd0;
@@ -216,6 +216,22 @@ h2 {
   padding: 72px var(--page-gutter) 24px;
 }
 
+.collection-worlds__heading {
+  text-align: center;
+  padding: 32px var(--page-gutter) 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.collection-worlds__heading h2 {
+  margin: 0 auto 12px;
+}
+
+.collection-worlds__heading p {
+  margin: 0 auto;
+}
+
+
 .drop-hero {
   display: grid;
   min-height: calc(100svh - var(--header-height));
@@ -302,7 +318,7 @@ h2 {
   display: none;
 }
 
-.artwork-scroll > * {
+.artwork-scroll>* {
   scroll-snap-align: start;
 }
 
@@ -364,19 +380,30 @@ h2 {
 }
 
 .world-tile {
-  aspect-ratio: 1 / 1.08;
+  aspect-ratio: 4 / 3;
   background: #222;
   color: #fff;
   display: grid;
-  min-height: 330px;
+  min-height: 0;
   overflow: hidden;
   position: relative;
+  transition: transform 220ms ease, box-shadow 280ms ease;
+  will-change: transform;
+}
+
+.world-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(23, 23, 23, 0.16), 0 0 0 2px rgba(212, 77, 46, 0.45);
+}
+
+.world-tile:active {
+  transform: translateY(-2px) scale(0.995);
 }
 
 .world-tile::before {
   content: "";
   grid-area: 1 / 1;
-  opacity: 0.82;
+  opacity: 0;
   z-index: 1;
 }
 
@@ -404,6 +431,11 @@ h2 {
   grid-area: 1 / 1;
   height: 100%;
   object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.world-tile:hover .world-tile__image {
+  transform: scale(1.035);
 }
 
 .world-tile__content {
@@ -597,7 +629,7 @@ h2 {
   font-size: 1rem;
 }
 
-.rte > *:last-child {
+.rte>*:last-child {
   margin-bottom: 0;
 }
 
@@ -700,7 +732,7 @@ h2 {
   text-transform: uppercase;
 }
 
-.variant-pill input:checked + span {
+.variant-pill input:checked+span {
   background: var(--color-foreground);
   border-color: var(--color-foreground);
   color: var(--color-background);
@@ -983,7 +1015,7 @@ summary {
 
 .league-hub {
   padding-top: var(--league-hub-padding-top, 80px);
-  padding-bottom: var(--league-hub-padding-bottom, 80px);
+  padding-bottom: 0;
 }
 
 .league-hub__container {
@@ -1020,11 +1052,16 @@ summary {
 
 .league-hub__heading {
   color: var(--league-hub-heading-color, #111111);
-  font-size: var(--league-hub-heading-font-size-mobile, 48px);
-  font-weight: 500;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(2.6rem, 4.5vw, 4.4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-align: center;
   line-height: 0.98;
-  margin: 0 0 20px;
+  margin: 0 auto 20px;
   max-width: var(--league-hub-heading-max-width, 640px);
+  width: 100%;
 }
 
 .league-hub__body {
@@ -1052,7 +1089,7 @@ summary {
   overflow: hidden;
   position: relative;
   text-decoration: none;
-  transition: all var(--league-hub-animation-speed, 300ms) ease;
+  transition: all var(--league-hub-animation-speed, 220ms) ease;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -1075,13 +1112,13 @@ summary {
 
 .league-card__image {
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--league-hub-animation-speed, 300ms) ease;
   width: 100%;
 }
 
 .league-card:hover .league-card__image {
-  transform: scale(var(--league-hub-image-zoom, 1));
+  transform: scale(var(--league-hub-image-zoom, 1.025));
 }
 
 .league-card__content {
@@ -1119,7 +1156,7 @@ summary {
   padding: var(--button-padding, 12px 16px);
   text-align: center;
   text-transform: uppercase;
-  transition: all var(--league-hub-animation-speed, 300ms) ease;
+  transition: all var(--league-hub-animation-speed, 220ms) ease;
 }
 
 .league-card--button-small .league-card__button {
@@ -1168,5 +1205,151 @@ summary {
 
   .league-hub__header {
     margin-bottom: 72px;
+  }
+}
+
+/* Featured Gear */
+
+.featured-gear {
+  padding: 48px var(--page-gutter) 64px;
+}
+
+.featured-gear__header {
+  max-width: 900px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.featured-gear__eyebrow {
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.featured-gear__heading {
+  color: var(--color-foreground);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 4.5vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  margin: 0 auto 16px;
+  max-width: 640px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.featured-gear__text {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.featured-gear__grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.featured-gear__card {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+  transition: transform 220ms ease, box-shadow 280ms ease;
+}
+
+.featured-gear__card:hover {
+  box-shadow: 0 18px 40px rgba(23, 23, 23, 0.16),
+    0 0 0 2px rgba(212, 77, 46, 0.45);
+  transform: translateY(-6px);
+}
+
+.featured-gear__card:active {
+  transform: translateY(-2px) scale(0.995);
+}
+
+.featured-gear__image-wrap {
+  background: var(--color-muted);
+  overflow: hidden;
+}
+
+.featured-gear__image {
+  display: block;
+  height: auto;
+  transition: transform 350ms ease;
+  width: 100%;
+}
+
+.featured-gear__card:hover .featured-gear__image {
+  transform: scale(1.035);
+}
+
+.featured-gear__content {
+  padding: 16px 4px 4px;
+}
+
+.featured-gear__title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.18;
+  margin: 0 0 6px;
+}
+
+.featured-gear__price {
+  color: #666;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.featured-gear__footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.featured-gear__shop-all {
+  color: var(--color-foreground);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+@media (min-width: 990px) {
+  .featured-gear__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Featured Gear — Desktop 4-Up Grid */
+@media (min-width: 990px) {
+  .featured-gear__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .featured-gear__image {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .featured-gear__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .featured-gear__title {
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 16px;
+  }
+
+  .featured-gear__price {
+    font-size: 16px;
+    margin-top: 6px;
   }
 }

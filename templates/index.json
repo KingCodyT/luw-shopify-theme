@@ -9,27 +9,99 @@
         "cta_label": "View drop"
       }
     },
-    "featured_artworks": {
-      "type": "featured-artworks",
-      "settings": {
-        "eyebrow": "Featured artworks",
-        "heading": "Start with the piece."
-      }
+    "league_hub": {
+      "type": "league-hub",
+      "settings": {},
+      "blocks": {
+        "nfl_lyfe": {
+          "type": "league_card",
+          "settings": {
+            "league_name": "NFL LYFE",
+            "tagline": "Where Sundays become memories.",
+            "button_text": "Explore NFL"
+          }
+        },
+        "mlb_lyfe": {
+          "type": "league_card",
+          "settings": {
+            "league_name": "MLB LYFE",
+            "tagline": "For the love of the game.",
+            "button_text": "Explore MLB"
+          }
+        },
+        "nba_lyfe": {
+          "type": "league_card",
+          "settings": {
+            "league_name": "NBA LYFE",
+            "tagline": "Above the rim. Beyond ordinary.",
+            "button_text": "Explore NBA"
+          }
+        },
+        "nhl_lyfe": {
+          "type": "league_card",
+          "settings": {
+            "league_name": "NHL LYFE",
+            "tagline": "Cold ice. Hot rivalries.",
+            "button_text": "Explore NHL"
+          }
+        },
+        "college_lyfe": {
+          "type": "league_card",
+          "settings": {
+            "league_name": "College LYFE",
+            "tagline": "Saturdays live forever.",
+            "button_text": "Explore College"
+          }
+        },
+        "racing_lyfe": {
+          "type": "league_card",
+          "settings": {
+            "league_name": "Racing LYFE",
+            "tagline": "Built For Speed.",
+            "button_text": "Explore Racing"
+          }
+        }
+      },
+      "block_order": [
+        "nfl_lyfe",
+        "mlb_lyfe",
+        "nba_lyfe",
+        "nhl_lyfe",
+        "college_lyfe",
+        "racing_lyfe"
+      ]
     },
-    "lifestyle_collections": {
-      "type": "lifestyle-collections",
-      "settings": {
-        "eyebrow": "Collections",
-        "heading": "Built as moods, moments, and lifestyles."
-      }
+    "featured_gear": {
+      "type": "featured-gear",
+      "settings": {},
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {}
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {}
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {}
+        },
+        "product_4": {
+          "type": "product",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4"
+      ]
     },
-    "collection_worlds": {
-      "type": "collection-worlds",
-      "settings": {
-        "eyebrow": "Shop worlds",
-        "heading": "Sports, outdoors, racing, lifestyle.",
-        "text": "Large collections can grow here without crowding the brand. Each world holds artwork-first products across the canvases you choose."
-      }
+    "lyfestyle_collections": {
+      "type": "lyfestyle-collections",
+      "settings": {}
     },
     "story_panel": {
       "type": "story-panel",
@@ -42,9 +114,9 @@
   },
   "order": [
     "drop_hero",
-    "featured_artworks",
-    "lifestyle_collections",
-    "collection_worlds",
+    "league_hub",
+    "featured_gear",
+    "lyfestyle_collections",
     "story_panel"
   ]
 }
