@@ -137,7 +137,7 @@
           "type": "league_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/NFL_image.png",
+            "image": "shopify://shop_images/League_LYFE_NFL.png",
             "league_name": "NFL LYFE",
             "tagline": "Where Sundays become memories.",
             "button_text": "Explore NFL",
@@ -153,7 +153,7 @@
           "type": "league_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/MLB_LYFE.png",
+            "image": "shopify://shop_images/League_Lyfe_MLB.png",
             "league_name": "MLB LYFE",
             "tagline": "For the love of the game.",
             "button_text": "Explore MLB",
@@ -169,7 +169,7 @@
           "type": "league_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/NBA_Lyfe.png",
+            "image": "shopify://shop_images/League_Lyfe_NBA_2.png",
             "league_name": "NBA LYFE",
             "tagline": "Above the rim. Beyond ordinary.",
             "button_text": "Explore NBA",
@@ -185,7 +185,7 @@
           "type": "league_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/NHL_LYFE.png",
+            "image": "shopify://shop_images/League_Lyfe_NHL.png",
             "league_name": "NHL LYFE",
             "tagline": "Cold ice. Hot rivalries.",
             "button_text": "Explore NHL",
@@ -201,7 +201,7 @@
           "type": "league_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/College_LYFE.png",
+            "image": "shopify://shop_images/League_Lyfe_College.png",
             "league_name": "College LYFE",
             "tagline": "Saturdays live forever.",
             "button_text": "Explore College",
@@ -217,7 +217,7 @@
           "type": "league_card",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/Racing_LYFE.png",
+            "image": "shopify://shop_images/League_Lyfe._Racingpng.png",
             "league_name": "Racing LYFE",
             "tagline": "Built For Speed.",
             "button_text": "Explore Racing",
@@ -311,6 +311,7 @@
         "product_4"
       ],
       "settings": {
+        "hero_image": "shopify://shop_images/09554a5d-1d0a-4f42-a8f5-3416aba72765_00bbd739-d538-45a0-a371-488193513ae0.png",
         "eyebrow": "FEATURED GEAR",
         "heading": "WEAR THE LYFE.",
         "text": "A few favorites worth wearing right now.",
@@ -320,7 +321,12 @@
     },
     "the_lyfe_blog": {
       "type": "the-lyfe-blog",
-      "settings": {}
+      "settings": {
+        "eyebrow": "THE LYFE",
+        "heading": "LIVE THE LYFE.",
+        "text": "Stories about the things we love, the places we go, and the moments worth wearing.",
+        "blog": ""
+      }
     }
   },
   "order": [
