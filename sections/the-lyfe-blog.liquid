@@ -1,0 +1,97 @@
+{% comment %}
+  The Lyfe Blog Feed
+  Always shows latest 3 articles from selected blog
+{% endcomment %}
+
+<section class="the-lyfe">
+  <div class="the-lyfe__header">
+    <p class="the-lyfe__eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+
+    <h2 class="the-lyfe__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    {% if section.settings.text != blank %}
+      <p class="the-lyfe__text">
+        {{ section.settings.text }}
+      </p>
+    {% endif %}
+  </div>
+
+  {% assign selected_blog = section.settings.blog %}
+
+  {% if selected_blog != blank %}
+    <div class="the-lyfe__grid">
+      {% for article in selected_blog.articles limit: 3 %}
+        <article class="the-lyfe__card">
+          <a href="{{ article.url }}" class="the-lyfe__image-link">
+            {% if article.image %}
+              {% render 'responsive-image',
+                image: article.image,
+                sizes: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw',
+                class: 'the-lyfe__image',
+                loading: 'lazy'
+              %}
+            {% endif %}
+          </a>
+
+          <div class="the-lyfe__content">
+            <h3 class="the-lyfe__title">
+              <a href="{{ article.url }}">
+                {{ article.title }}
+              </a>
+            </h3>
+
+            <p class="the-lyfe__excerpt">
+              {% if article.excerpt != blank %}
+                {{ article.excerpt | strip_html | truncate: 150 }}
+              {% else %}
+                {{ article.content | strip_html | truncate: 150 }}
+              {% endif %}
+            </p>
+
+            <a href="{{ article.url }}" class="the-lyfe__read-more"> READ MORE → </a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "The Lyfe Blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE LYFE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "LIVE THE LYFE."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Intro text",
+      "default": "Stories about the things we love, the places we go, and the moments worth wearing."
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "The Lyfe Blog"
+    }
+  ]
+}
+{% endschema %}

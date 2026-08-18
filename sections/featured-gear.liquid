@@ -1,5 +1,15 @@
 {% comment %} Featured Gear section {% endcomment %}
 <section class="featured-gear">
+  {% if section.settings.hero_image != blank %}
+    <div class="featured-gear__hero">
+      {% render 'responsive-image',
+        image: section.settings.hero_image,
+        sizes: '100vw',
+        class: 'featured-gear__hero-image',
+        loading: 'lazy'
+      %}
+    </div>
+  {% endif %}
   <div class="featured-gear__header">
     <p class="featured-gear__eyebrow">
       {{ section.settings.eyebrow }}
@@ -66,6 +76,11 @@
 {
   "name": "Featured gear",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Featured Gear Hero Image"
+    },
     {
       "type": "text",
       "id": "eyebrow",

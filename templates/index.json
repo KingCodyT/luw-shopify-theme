@@ -9,6 +9,114 @@
  */
 {
   "sections": {
+    "lifestyle_collections_9CdnPm": {
+      "type": "lifestyle-collections",
+      "blocks": {
+        "lyfestyle_tile_37PFWf": {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "square",
+            "image": "shopify://shop_images/Lyfestyle_sunrise_fishing_image.png",
+            "collection": "",
+            "link": "",
+            "label": "",
+            "title": "",
+            "cta": ""
+          }
+        },
+        "lyfestyle_tile_y7QyFg": {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "hero",
+            "image": "shopify://shop_images/Lyfestyle_fishing_image.png",
+            "collection": "",
+            "link": "",
+            "label": "LYFESTYLE",
+            "title": "",
+            "cta": "Explore"
+          }
+        },
+        "lyfestyle_tile_RfUfar": {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "tall",
+            "image": "shopify://shop_images/LUW_video_image_for_Rich.png",
+            "video": "shopify://files/videos/LUW intro to LYFEUWANT.mp4",
+            "collection": "",
+            "link": "",
+            "label": "",
+            "title": "",
+            "cta": ""
+          }
+        },
+        "lyfestyle_tile_iyyqBR": {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "square",
+            "image": "shopify://shop_images/Lyfestyle_tailgating.png",
+            "collection": "",
+            "link": "",
+            "label": "",
+            "title": "",
+            "cta": ""
+          }
+        },
+        "lyfestyle_tile_eb8nxz": {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "square",
+            "image": "shopify://shop_images/Lyfestyle_music_image.png",
+            "collection": "",
+            "link": "",
+            "label": "",
+            "title": "",
+            "cta": ""
+          }
+        },
+        "lyfestyle_tile_XV7H6E": {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "wide",
+            "image": "shopify://shop_images/Lyfestyle_racing_image.png",
+            "collection": "",
+            "link": "",
+            "label": "",
+            "title": "",
+            "cta": ""
+          }
+        },
+        "lyfestyle_tile_Up4xbn": {
+          "type": "lyfestyle_tile",
+          "settings": {
+            "tile_size": "square",
+            "image": "shopify://shop_images/Lyfestyle_party.png",
+            "collection": "",
+            "link": "",
+            "label": "",
+            "title": "",
+            "cta": ""
+          }
+        }
+      },
+      "block_order": [
+        "lyfestyle_tile_37PFWf",
+        "lyfestyle_tile_y7QyFg",
+        "lyfestyle_tile_RfUfar",
+        "lyfestyle_tile_iyyqBR",
+        "lyfestyle_tile_eb8nxz",
+        "lyfestyle_tile_XV7H6E",
+        "lyfestyle_tile_Up4xbn"
+      ],
+      "custom_css": [
+        ".lyfestyle-mosaic__overlay {position: absolute; inset: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: flex-end;}"
+      ],
+      "name": "LYFESTYLE Mosaic",
+      "settings": {
+        "eyebrow": "LYFESTYLE",
+        "heading": "THAT'S THE LYFE I WANT.",
+        "text": ""
+      }
+    },
     "drop_hero": {
       "type": "artwork-drop-hero",
       "settings": {
@@ -209,19 +317,16 @@
         "shop_all_label": "SHOP ALL →"
       }
     },
-    "lyfestyle_collections": {
-      "type": "lyfestyle-collections",
-      "settings": {
-        "eyebrow": "LIFESTYLE COLLECTIONS",
-        "title": "FIND YOUR THING.",
-        "subtitle": "Whatever makes life better, there’s a LYFE for it."
-      }
+    "the_lyfe_blog": {
+      "type": "the-lyfe-blog",
+      "settings": {}
     }
   },
   "order": [
+    "lifestyle_collections_9CdnPm",
     "drop_hero",
     "league_hub",
     "featured_gear",
-    "lyfestyle_collections"
+    "the_lyfe_blog"
   ]
 }

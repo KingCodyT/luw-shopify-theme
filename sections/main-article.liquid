@@ -1,0 +1,36 @@
+<article class="lyfe-article">
+  <header class="lyfe-article__header">
+    <p class="lyfe-article__eyebrow">THE LYFE</p>
+
+    <h1 class="lyfe-article__title">
+      {{ article.title }}
+    </h1>
+
+    {% if article.excerpt != blank %}
+      <p class="lyfe-article__excerpt">
+        {{ article.excerpt | strip_html }}
+      </p>
+    {% endif %}
+  </header>
+
+  {% if article.image %}
+    <div class="lyfe-article__hero">
+      {% render 'responsive-image', image: article.image, sizes: '100vw', class: 'lyfe-article__hero-image' %}
+    </div>
+  {% endif %}
+
+  <div class="lyfe-article__body rte">
+    {{ article.content }}
+  </div>
+
+  <footer class="lyfe-article__footer">
+    <a href="{{ blog.url }}" class="lyfe-article__back"> ← BACK TO THE LYFE </a>
+  </footer>
+</article>
+
+{% schema %}
+{
+  "name": "Main article",
+  "settings": []
+}
+{% endschema %}

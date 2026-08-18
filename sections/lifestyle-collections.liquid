@@ -25,62 +25,76 @@
         assign link = block.settings.link | default: collection.url
       %}
 
-      <a
-        class="lyfestyle-mosaic__tile lyfestyle-mosaic__tile--{{ block.settings.tile_size }}"
-        href="{{ link }}"
-        {{ block.shopify_attributes }}
-      >
-        <div class="lyfestyle-mosaic__media">
-          {% if block.settings.video != blank %}
-            {{
-              block.settings.video
-              | video_tag:
-                autoplay: true,
-                loop: true,
-                muted: true,
-                controls: false,
-                playsinline: true,
-                class: 'lyfestyle-mosaic__video'
-            }}
-          {% elsif block.settings.image != blank %}
-            {% render 'responsive-image',
-              image: block.settings.image,
-              sizes: '(min-width: 990px) 50vw, (min-width: 750px) 50vw, 100vw',
-              class: 'lyfestyle-mosaic__image',
-              loading: 'lazy'
-            %}
-          {% elsif collection.featured_image != blank %}
-            {% render 'responsive-image',
-              image: collection.featured_image,
-              sizes: '(min-width: 990px) 50vw, (min-width: 750px) 50vw, 100vw',
-              class: 'lyfestyle-mosaic__image',
-              loading: 'lazy'
-            %}
-          {% endif %}
+      {% if block.settings.video != blank %}
+        <div
+          class="lyfestyle-mosaic__tile lyfestyle-mosaic__tile--{{ block.settings.tile_size }}"
+          {{ block.shopify_attributes }}
+        >
+      {% else %}
+        <a
+          class="lyfestyle-mosaic__tile lyfestyle-mosaic__tile--{{ block.settings.tile_size }}"
+          href="{{ link }}"
+          {{ block.shopify_attributes }}
+        >
+      {% endif %}
+      <div class="lyfestyle-mosaic__media">
+        {% if block.settings.video != blank %}
+          {% assign video_poster = block.settings.image | image_url: width: 1200 %}
+
+          {{
+            block.settings.video
+            | video_tag:
+              autoplay: false,
+              loop: false,
+              muted: false,
+              controls: true,
+              playsinline: true,
+              poster: video_poster,
+              class: 'lyfestyle-mosaic__video'
+          }}
+        {% elsif block.settings.image != blank %}
+          {% render 'responsive-image',
+            image: block.settings.image,
+            sizes: '(min-width: 990px) 50vw, (min-width: 750px) 50vw, 100vw',
+            class: 'lyfestyle-mosaic__image',
+            loading: 'lazy'
+          %}
+        {% elsif collection.featured_image != blank %}
+          {% render 'responsive-image',
+            image: collection.featured_image,
+            sizes: '(min-width: 990px) 50vw, (min-width: 750px) 50vw, 100vw',
+            class: 'lyfestyle-mosaic__image',
+            loading: 'lazy'
+          %}
+        {% endif %}
+      </div>
+
+      <div class="lyfestyle-mosaic__overlay">
+        {% if block.settings.label != blank %}
+          <span class="lyfestyle-mosaic__label">
+            {{ block.settings.label }}
+          </span>
+        {% endif %}
+
+        {% if block.settings.title != blank %}
+          <h3 class="lyfestyle-mosaic__title">
+            {{ block.settings.title }}
+          </h3>
+        {% elsif collection != blank %}
+          <h3 class="lyfestyle-mosaic__title">
+            {{ collection.title }}
+          </h3>
+        {% endif %}
+
+        {% if block.settings.cta != blank %}
+          <span class="lyfestyle-mosaic__cta"> {{ block.settings.cta }} → </span>
+        {% endif %}
+      </div>
+      {% if block.settings.video != blank %}
         </div>
-
-        <div class="lyfestyle-mosaic__overlay">
-          {% if block.settings.label != blank %}
-            <span class="lyfestyle-mosaic__label">
-              {{ block.settings.label }}
-            </span>
-          {% endif %}
-
-          {% if block.settings.title != blank %}
-            <h3 class="lyfestyle-mosaic__title">
-              {{ block.settings.title }}
-            </h3>
-          {% elsif collection != blank %}
-            <h3 class="lyfestyle-mosaic__title">
-              {{ collection.title }}
-            </h3>
-          {% endif %}
-
-          {% if block.settings.cta != blank %}
-            <span class="lyfestyle-mosaic__cta"> {{ block.settings.cta }} → </span>
-          {% endif %}
-        </div>
-      </a>
+      {% else %}
+        </a>
+      {% endif %}
     {% endfor %}
   </div>
 </section>

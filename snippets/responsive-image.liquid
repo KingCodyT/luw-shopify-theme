@@ -8,12 +8,7 @@
   {{
     image
     | image_url: width: 2000
-    | image_tag:
-      widths: image_widths,
-      sizes: sizes,
-      loading: image_loading,
-      alt: image_alt,
-      class: class
+    | image_tag: widths: image_widths, sizes: sizes, loading: image_loading, alt: image_alt, class: class
   }}
 {% else %}
   <div class="placeholder-art {{ class }}" aria-hidden="true">

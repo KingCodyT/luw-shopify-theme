@@ -234,8 +234,12 @@ h2 {
 
 .drop-hero {
   display: grid;
-  min-height: calc(100svh - var(--header-height));
   position: relative;
+  margin: 48px auto 0;
+  width: calc(100% - 64px);
+  max-width: 1800px;
+  border-radius: 28px;
+  overflow: hidden;
 }
 
 .drop-hero__media {
@@ -940,12 +944,12 @@ summary {
     grid-template-columns: 1fr;
   }
 
-  .drop-hero__media {
-    min-height: calc(100svh - var(--header-height));
-  }
 
-  .drop-hero__copy {
-    padding: 64px var(--page-gutter);
+  .drop-hero__media {
+    background: var(--color-muted);
+    grid-area: 1 / 1;
+    position: relative;
+    min-height: 620px;
   }
 
   .artwork-scroll {
@@ -1104,13 +1108,14 @@ summary {
 }
 
 .league-card__image-wrap {
-  aspect-ratio: var(--league-hub-image-aspect-ratio, 16 / 10);
+  aspect-ratio: 4 / 3;
   background: var(--color-muted);
   overflow: hidden;
   position: relative;
 }
 
 .league-card__image {
+  display: block;
   height: 100%;
   object-fit: contain;
   transition: transform var(--league-hub-animation-speed, 300ms) ease;
@@ -1357,7 +1362,7 @@ summary {
 /* LYFESTYLE cinematic mosaic */
 
 .lyfestyle-mosaic {
-  padding: 80px 24px;
+  padding: 24px 24px 0;
 }
 
 .lyfestyle-mosaic__header {
@@ -1519,5 +1524,230 @@ summary {
 
   .lyfestyle-mosaic__overlay {
     padding: 20px;
+  }
+}
+
+.featured-gear__hero {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  margin-bottom: 48px;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.featured-gear__hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ========================================
+   THE LYFE — BLOG FEED
+======================================== */
+
+.the-lyfe {
+  padding: 72px 0;
+}
+
+.the-lyfe__header {
+  margin-bottom: 32px;
+}
+
+.the-lyfe__eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.the-lyfe__heading {
+  margin: 0 0 12px;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1;
+}
+
+.the-lyfe__text {
+  max-width: 700px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.the-lyfe__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.the-lyfe__card {
+  min-width: 0;
+}
+
+.the-lyfe__image-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 24px;
+  aspect-ratio: 16 / 9;
+}
+
+.the-lyfe__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.the-lyfe__card-content {
+  padding-top: 18px;
+}
+
+.the-lyfe__date {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.the-lyfe__title {
+  margin: 0 0 10px;
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.the-lyfe__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.the-lyfe__excerpt {
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
+.the-lyfe__read-more {
+  display: inline-block;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+.the-lyfe__read-more:hover,
+.the-lyfe__title a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .the-lyfe__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .the-lyfe {
+    padding: 48px 0;
+  }
+
+  .the-lyfe__title {
+    font-size: 24px;
+  }
+}
+
+/* ========================================
+   THE LYFE — ARTICLE PAGE
+======================================== */
+
+.lyfe-article {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 32px 96px;
+}
+
+.lyfe-article__header {
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+
+.lyfe-article__eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lyfe-article__title {
+  margin: 0 0 20px;
+  font-size: clamp(42px, 7vw, 88px);
+  line-height: 0.95;
+}
+
+.lyfe-article__excerpt {
+  max-width: 760px;
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.lyfe-article__hero {
+  margin-bottom: 48px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.lyfe-article__hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lyfe-article__body {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.lyfe-article__body h2 {
+  margin-top: 48px;
+  margin-bottom: 18px;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.lyfe-article__body p {
+  margin-bottom: 24px;
+}
+
+.lyfe-article__footer {
+  max-width: 760px;
+  margin: 56px auto 0;
+}
+
+.lyfe-article__back {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 749px) {
+  .lyfe-article {
+    padding: 48px 20px 72px;
+  }
+
+  .lyfe-article__excerpt {
+    font-size: 19px;
+  }
+
+  .lyfe-article__body {
+    font-size: 18px;
+  }
+
+  .lyfe-article__body h2 {
+    font-size: 28px;
   }
 }
