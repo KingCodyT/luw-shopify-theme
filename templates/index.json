@@ -119,6 +119,7 @@
     },
     "drop_hero": {
       "type": "artwork-drop-hero",
+      "disabled": true,
       "settings": {
         "eyebrow": "Current drop",
         "heading": "The Lyfe U Want",
