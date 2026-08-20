@@ -1,0 +1,41 @@
+<section class="lyfe-blog-page">
+  <div class="lyfe-blog-page__inner">
+    <header class="lyfe-blog-page__header">
+      <h1>{{ blog.title }}</h1>
+      <p>Stories about the things we love, the places we go, and the moments worth wearing.</p>
+    </header>
+
+    <div class="lyfe-blog-page__grid">
+      {% for article in blog.articles reversed %}
+        <article class="lyfe-blog-page__card">
+          {% if article.image %}
+            <a href="{{ article.url }}" class="lyfe-blog-page__image">
+              {% render 'responsive-image', image: article.image, sizes: '(min-width: 990px) 33vw, 100vw' %}
+            </a>
+          {% endif %}
+
+          <div class="lyfe-blog-page__content">
+            <h2>
+              <a href="{{ article.url }}">{{ article.title }}</a>
+            </h2>
+
+            {% if article.excerpt != blank %}
+              <div class="lyfe-blog-page__excerpt">
+                {{ article.excerpt | strip_html | truncatewords: 28 }}
+              </div>
+            {% endif %}
+
+            <a href="{{ article.url }}" class="lyfe-blog-page__read-more"> READ MORE → </a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main blog",
+  "settings": []
+}
+{% endschema %}

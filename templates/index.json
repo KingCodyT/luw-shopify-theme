@@ -136,7 +136,7 @@
         "nfl_lyfe": {
           "type": "league_card",
           "settings": {
-            "collection": "",
+            "collection": "nfl",
             "image": "shopify://shop_images/League_LYFE_NFL.png",
             "league_name": "NFL LYFE",
             "tagline": "Where Sundays become memories.",
@@ -152,7 +152,7 @@
         "mlb_lyfe": {
           "type": "league_card",
           "settings": {
-            "collection": "",
+            "collection": "mlb",
             "image": "shopify://shop_images/League_Lyfe_MLB.png",
             "league_name": "MLB LYFE",
             "tagline": "For the love of the game.",
@@ -168,7 +168,7 @@
         "nba_lyfe": {
           "type": "league_card",
           "settings": {
-            "collection": "",
+            "collection": "nba",
             "image": "shopify://shop_images/League_Lyfe_NBA_2.png",
             "league_name": "NBA LYFE",
             "tagline": "Above the rim. Beyond ordinary.",
@@ -184,7 +184,7 @@
         "nhl_lyfe": {
           "type": "league_card",
           "settings": {
-            "collection": "",
+            "collection": "nhl",
             "image": "shopify://shop_images/League_Lyfe_NHL.png",
             "league_name": "NHL LYFE",
             "tagline": "Cold ice. Hot rivalries.",
@@ -200,7 +200,7 @@
         "college_lyfe": {
           "type": "league_card",
           "settings": {
-            "collection": "",
+            "collection": "college-lyfe",
             "image": "shopify://shop_images/League_Lyfe_College.png",
             "league_name": "College LYFE",
             "tagline": "Saturdays live forever.",
@@ -216,7 +216,7 @@
         "racing_lyfe": {
           "type": "league_card",
           "settings": {
-            "collection": "",
+            "collection": "racing-lyfe",
             "image": "shopify://shop_images/League_Lyfe._Racingpng.png",
             "league_name": "Racing LYFE",
             "tagline": "Built For Speed.",
@@ -322,10 +322,10 @@
     "the_lyfe_blog": {
       "type": "the-lyfe-blog",
       "settings": {
-        "eyebrow": "THE LYFE",
+        "eyebrow": "",
         "heading": "LIVE THE LYFE.",
         "text": "Stories about the things we love, the places we go, and the moments worth wearing.",
-        "blog": ""
+        "blog": "the-lyfe"
       }
     }
   },
