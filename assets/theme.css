@@ -785,7 +785,8 @@ summary {
 
 .collection-artwork__header {
   display: grid;
-  min-height: 56svh;
+  height: 46svh;
+  overflow: hidden;
   position: relative;
 }
 
@@ -793,6 +794,7 @@ summary {
   grid-area: 1 / 1;
   height: 100%;
   object-fit: cover;
+  object-position: center bottom;
 }
 
 .collection-artwork__header::after {
