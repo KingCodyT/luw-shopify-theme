@@ -7,6 +7,16 @@
     <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="What’s Your LYFE?">
     <button class="button button--primary" type="submit">Search</button>
   </form>
+  {% if section.settings.banner_image != blank %}
+    <div class="search-banner">
+      {% render 'responsive-image',
+        image: section.settings.banner_image,
+        sizes: '100vw',
+        loading: 'eager',
+        class: 'search-banner__image'
+      %}
+    </div>
+  {% endif %}
 
   {% if search.performed %}
     <div class="collection-artwork__grid">
@@ -28,6 +38,13 @@
 
 {% schema %}
 {
-  "name": "Search"
+  "name": "Search",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Search lifestyle banner"
+    }
+  ]
 }
 {% endschema %}

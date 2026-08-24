@@ -2030,3 +2030,18 @@ summary {
   font-size: 21px;
   line-height: 1.5;
 }
+
+/* SEARCH — lifestyle banner */
+
+.search-banner {
+  margin-top: 24px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.search-banner__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
