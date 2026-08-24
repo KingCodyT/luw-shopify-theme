@@ -89,7 +89,7 @@
           "type": "lyfestyle_tile",
           "settings": {
             "tile_size": "square",
-            "image": "shopify://shop_images/Lyfestyle_party.png",
+            "image": "shopify://shop_images/fdb98df3-6df2-4ace-8a9c-711ac8d707ec.png",
             "collection": "",
             "link": "",
             "label": "",
@@ -112,7 +112,7 @@
       ],
       "name": "LYFESTYLE Mosaic",
       "settings": {
-        "eyebrow": "LYFESTYLE",
+        "eyebrow": "",
         "heading": "THAT'S THE LYFE I WANT.",
         "text": ""
       }

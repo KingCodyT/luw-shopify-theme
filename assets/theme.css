@@ -785,16 +785,17 @@ summary {
 
 .collection-artwork__header {
   display: grid;
-  height: 46svh;
-  overflow: hidden;
+  min-height: 56svh;
   position: relative;
 }
 
 .collection-artwork__hero {
   grid-area: 1 / 1;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center center;
+  display: block;
 }
 
 .collection-artwork__header::after {
