@@ -2031,8 +2031,37 @@ summary {
   line-height: 1.5;
 }
 
-/* SEARCH — lifestyle banner */
+/* SEARCH — results spacing */
+/* SEARCH — landing spacing */
+.search-shell:not(.search-shell--results) {
+  padding-top: 28px;
+}
 
+.search-shell:not(.search-shell--results) .section-heading {
+  margin-bottom: 20px;
+}
+
+.search-shell:not(.search-shell--results) .section-heading h1 {
+  font-size: clamp(56px, 6vw, 88px);
+  max-width: none;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.search-shell--results .section-heading {
+  margin-bottom: 12px;
+}
+
+.search-shell--results .search-form {
+  padding-bottom: 16px;
+  margin-bottom: 0;
+}
+
+.search-shell--results .collection-artwork__grid {
+  padding-top: 8px;
+}
+
+/* SEARCH — lifestyle banner */
 .search-banner {
   margin-top: 24px;
   width: 100%;
@@ -2043,5 +2072,8 @@ summary {
 .search-banner__image {
   display: block;
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 18px;
 }

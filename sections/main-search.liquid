@@ -1,4 +1,4 @@
-<section class="search-shell">
+<section class="search-shell{% if search.performed %} search-shell--results{% endif %}">
   <div class="section-heading">
     <h1>Find Your LYFE.</h1>
   </div>
@@ -7,7 +7,7 @@
     <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="What’s Your LYFE?">
     <button class="button button--primary" type="submit">Search</button>
   </form>
-  {% if section.settings.banner_image != blank %}
+  {% if section.settings.banner_image != blank and search.performed == false %}
     <div class="search-banner">
       {% render 'responsive-image',
         image: section.settings.banner_image,
