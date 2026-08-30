@@ -19,19 +19,41 @@
   {% endif %}
 
   {% if search.performed %}
+    {% assign search_query = search.terms | downcase %}
+    {% assign search_words = search_query | split: ' ' %}
+
     <div class="collection-artwork__grid">
-      {% for item in search.results %}
-        {% if item.object_type == 'product' %}
-          {% render 'artwork-tile', product: item %}
-        {% else %}
-          <a class="search-result" href="{{ item.url }}">
-            <span class="eyebrow">{{ item.object_type }}</span>
-            <h2>{{ item.title }}</h2>
-          </a>
-        {% endif %}
-      {% else %}
+      {% assign results_found = 0 %}
+
+      {% paginate collections.all.products by 250 %}
+        {% for product in collections.all.products %}
+          {% assign product_tags = product.tags | join: ' ' | downcase %}
+          {% assign product_title = product.title | downcase %}
+          {% assign product_type = product.type | downcase %}
+
+          {% capture searchable_text %}
+        {{ product_title }} {{ product_tags }} {{ product_type }}
+      {% endcapture %}
+
+          {% assign product_matches = true %}
+
+          {% for word in search_words %}
+            {% unless searchable_text contains word %}
+              {% assign product_matches = false %}
+              {% break %}
+            {% endunless %}
+          {% endfor %}
+
+          {% if product_matches %}
+            {% assign results_found = results_found | plus: 1 %}
+            {% render 'artwork-tile', product: product %}
+          {% endif %}
+        {% endfor %}
+      {% endpaginate %}
+
+      {% if results_found == 0 %}
         <p>No results found.</p>
-      {% endfor %}
+      {% endif %}
     </div>
   {% endif %}
 </section>

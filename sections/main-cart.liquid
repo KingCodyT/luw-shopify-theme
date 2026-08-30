@@ -1,8 +1,15 @@
 <section class="cart-shell">
-  <div class="section-heading">
-    <p class="eyebrow">Cart</p>
-    <h1>Your canvases</h1>
-  </div>
+  {% unless cart == empty %}
+    <div class="cart-lyfe-hero">
+      <img
+        src="{{ 'LUWcartimage.png' | file_url }}"
+        alt="Now you're livin' the LYFE"
+        class="cart-lyfe-hero__image"
+        width="1536"
+        height="1024"
+      >
+    </div>
+  {% endunless %}
 
   {% if cart == empty %}
     <p>Your cart is empty.</p>
@@ -12,11 +19,7 @@
       {% for item in cart.items %}
         <article class="cart-item">
           <a href="{{ item.url }}" class="cart-item__image">
-            {% render 'responsive-image',
-              image: item.image,
-              sizes: '160px',
-              class: 'cart-item__img'
-            %}
+            {% render 'responsive-image', image: item.image, sizes: '160px', class: 'cart-item__img' %}
           </a>
           <div class="cart-item__content">
             <h2>{{ item.product.title }}</h2>
