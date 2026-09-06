@@ -1,0 +1,27 @@
+/* LUW collection banner standard: establish the collection, then show the gear. */
+@media (min-width: 750px) {
+  .collection-artwork__header {
+    min-height: 0;
+    height: clamp(300px, 34vw, 390px);
+    overflow: hidden;
+  }
+
+  .collection-artwork__hero {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .collection-artwork__grid {
+    padding-top: 12px;
+  }
+}
+
+@media (max-width: 749px) {
+  .collection-artwork__header {
+    min-height: 0;
+    height: 42svh;
+    max-height: 390px;
+    overflow: hidden;
+  }
+}
