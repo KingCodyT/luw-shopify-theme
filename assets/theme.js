@@ -17,6 +17,7 @@
     const idInput = form.querySelector('input[name="id"]');
     const price = section?.querySelector('[data-price]');
     const submit = form.querySelector('button[type="submit"]');
+    const mediaItems = section?.querySelectorAll('[data-product-media]') || [];
 
     if (!variantsScript || !idInput) return;
 
@@ -34,6 +35,23 @@
       });
     };
 
+    const showVariantMedia = (variant) => {
+      if (!variant?.featured_media_id || !mediaItems.length) return;
+
+      let matched = false;
+      mediaItems.forEach((media) => {
+        const isMatch = String(media.dataset.mediaId) === String(variant.featured_media_id);
+        media.hidden = !isMatch;
+        if (isMatch) matched = true;
+      });
+
+      if (!matched) {
+        mediaItems.forEach((media, index) => {
+          media.hidden = index !== 0;
+        });
+      }
+    };
+
     form.addEventListener('change', () => {
       const variant = findSelectedVariant();
       if (!variant) return;
@@ -48,6 +66,8 @@
         submit.disabled = !variant.available;
         submit.textContent = variant.available ? 'ADD TO CART' : 'Sold out';
       }
+
+      showVariantMedia(variant);
     });
   });
 })();
