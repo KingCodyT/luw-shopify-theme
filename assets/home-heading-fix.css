@@ -14,6 +14,13 @@
   text-transform: uppercase;
 }
 
+/* League Hub byline uses the same LUW editorial serif family. */
+.league-hub__body {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
 @media (min-width: 990px) {
   .lyfestyle-mosaic__header h2,
   .league-hub__heading {
